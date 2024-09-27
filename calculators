@@ -1,20 +1,32 @@
 -------------
-IRS/DEDION AS/IC/COG
+IRS/DEDION — AS/IC/COG
 -------------
 
 
 
+-------------
+CHAIN DRIVE — SWING ARM AS/IC/COG
+-------------
+
+
 
 -------------
-SA AS/IC/COG
+HUB DRIVE — SWING ARM AS/IC/COG
 -------------
-(*2)
-v
-0 link (dragster)
-1 link (swing arm)
-2 link (4 link)
-3 link
-4
+
+
+
+-------------
+'SOLID AXLE' — AS/IC/COG
+-------------
+
+0L 1P (no suspension(dragsters)
+1L 2P (swing arm)
+2L    (4 link)
+.
+.
+.
+Λ *2
 
 
 
