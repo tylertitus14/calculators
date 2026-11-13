@@ -267,6 +267,17 @@ THE ONLY THREE SHAPES A NON-NULL BOX CAN TAKE
                      v = 0.1c: D = 299,792 km (most of the way to the Moon).
         These are minimums: with any finite signal speed u > c on each leg
         the advance is smaller and D must be larger.
+        
+        (((Planetary relay (rough, circular orbits): at orbital speeds
+        (~1e-4 c) D must be AU-scale. Best-case advance with the relay on
+          Venus ~0.02 s   Mars ~0.035 s   Jupiter ~0.24 s
+          Saturn ~0.46 s  Neptune ~1.5 s
+        so Jupiter or farther covers the class table, but only when the
+        planets' positions and motion line up (other times it comes back
+        late). It needs FTL links that are instant in EACH world's own
+        frame - the two-frame case the wave-law note flags as its open
+        limit (its section 8) - and a working relay out there.)))
+
   (ii)  direct retrocausation: a future condition changes a present
         measurable.
   (iii) the green is already fixed by present data the box can read.
