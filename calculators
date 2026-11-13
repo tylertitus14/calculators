@@ -145,58 +145,386 @@ FRCT-DCM-ETC
  MAGIC BOX
 -------------
 
-To compare and contrast the complete mathematics of these two approaches, we look at how they handle the variables of space (x), time (t), and frequency (omega).
+THE GOAL
 
-While both systems aim to minimize or eliminate the time interval across a distance, they use fundamentally different branches of wave physics math.
+Instant-green tree (hypothetical, non-standard): no amber warning before
+green. A box at the car watches the tree and sends the launch command
+(transbrake release, or clutch/throttle on cars without a transbrake).
+The tree is L = 15 ft = 4.572 m away.
 
-The Engineered Smoke Corridor relies on Differential Calculus and Dispersion Relations to accelerate a propagation vector, whereas the Rigid Mode Quantum Cavity relies on the Separation of Variables and Boundary Eigenvalues to eliminate propagation entirely.
+THE LAUNCH POINT (defined so nobody has to argue about it)
+"When the car launches" is fuzzy: switch contact? solenoid opening?
+clutch starting to slip? To avoid that, the clock starts at the one event
+the box itself controls and a scope can see: the instant the box's own
+launch output switches (the electrical edge at its output connector).
+Everything after that edge - solenoid or valve release, clutch, converter,
+tire roll, beam - is lumped into t_car.
 
-1. The Mathematical Frameworks
+Definitions (times in seconds):
+  t_green = the timing system's green signal (what the RT clock uses)
+  t_bulb  = (green lamp visibly on) - t_green
+            incandescent ~ 0.03 s, LED close to 0
+  t_box   = (box output switches) - (box sees the green lamp)
+  t_car   = (stage beam clears) - (box output switches)
+  RT      = (stage beam clears) - t_green
+  RT = 0.000: beam clears exactly at green. Negative RT = red light.
 
-Method A: Teh
-(Calculus of Dispersion)
+For RT = 0 the box's output must switch at t_green - t_car, i.e. t_car
+BEFORE the green signal, and t_car + t_bulb before the lamp it is
+watching visibly lights.
 
-This method treats the staging lane as an open transmission line where a perturbation must physically move from x = 0 to x = L.
+Working estimates by class (Portatree's published typical rollouts,
+which are timed from the driver's launch command to the beam - car only).
+The bulb lag is NOT in these numbers; it is the separate t_bulb term, so
+nothing is subtracted for an LED tree:
 
-The math focuses on manipulating the Group Velocity (vg) of a wave packet through a medium by altering its refractive index relative to angular frequency (omega).
+  Class                     t_car         Advance needed   Advance as multiple
+                                          before green     of light time (L/c)
+  Top Fuel dragster (est.)  ~ .10 s       ~ .10 s          6.6 million
+  Super Comp dragster       .18 - .22 s   .18 - .22 s      11.8 - 14.4 million
+  Pro Stock car             .24 - .28 s   .24 - .28 s      15.7 - 18.4 million
+  Super Stocker (~3200 lb)  .30 - .34 s   .30 - .34 s      19.7 - 22.3 million
+  Door cars, rule of thumb: t_car ~ (weight in lb, with driver) / 10,000 s
+  (Sportsman/door-car rule only. It does NOT fit nitro dragsters: a
+  ~2,300 lb Top Fuel car would come out ~.23 s, about double the row above.)
 
-The primary governing equation is the derivative of the optical dispersion relation:
+  Top Fuel row: a rounded physics estimate, not a published figure.
+  ~11.5 in of tire roll to clear the beam at ~5 g gives ~0.11 s, less if
+  deep-staged; real cars take a few hundredths of a second to build up
+  that force, so 0.10 s is a best-case floor, not a typical value. Like
+  every row, it is car-only (no bulb delay).
 
-vg = dw/dk = c/ng
+  light time across the lane:  L / c = 4.572 / 299792458 = 15.25 ns
+  (Examples below use the best case, t_car = 0.10 s.)
 
-Where the Group Index (ng) is defined by the first derivative of the refractive index with respect to frequency:
+A bookkeeping number people sometimes quote: v_eff = L / (-advance)
+(Top Fuel -45.7 m/s, Super Stock -13.4 m/s). Careful: its size SHRINKS
+as the job gets HARDER. Judge difficulty by the advance column only.
 
-ng = n(w) + w * (dn/dw)
+The size of the advance is nothing. The sign is everything: this is not a
+request for a fast signal, it is a request to receive a signal before it
+is sent. Heavier classes make it worse - they need MORE advance.
 
-The Math Execution: By using an infrared pump laser to pre-excite the carbon-black particulates, you artificially force a massive, steep negative gradient (dn/dw < 0) within a narrow spectral window.
+Repeatability and red lights: a fixed lead cancels the AVERAGE t_car, not
+its run-to-run spread (sigma_car). Displayed .000 means RT within about
++/- 0.0005 s; to land there 99% of the time needs sigma_car under about
+0.0002 s. And since any negative RT is a red light
+(an outright loss), even a box with perfect future information would aim
+slightly LATE: aiming RT = +3 x sigma_car red-lights about 1 run in 740.
+Example: sigma_car = 0.002 s -> aim RT = +0.006 s. Realistic target:
+small positive RT, no reds. The class ranges above (about +/- 0.02 s) are
+differences BETWEEN cars, not one car's run-to-run spread, which has to
+be measured on the car.
 
-The Velocity Consequence: This negative gradient drives the value of ng down to exactly 0.1. Substituting this back into the velocity equation yields:
+FOUR THINGS THAT ARE NOT THE SAME
+  1. Superluminal signal  - arrives faster than light, but AFTER it is sent.
+  2. Backward signal      - a chosen message arrives BEFORE it is sent.
+  3. Predictive correlation - data line up with the future, but nobody can
+                              choose what they say (no message).
+  4. Prediction           - the future is already fixed by present data.
+Only 2 (or 4) gives the box what it needs.
 
-vg = c / 0.1 = 10 * c
+WHY STANDARD PHYSICS PREDICTS ZERO
 
-The Distance Function: Because this remains a propagation model, time is a strict linear function of distance (L):Delta_t = L / vg = L / (10 * c)
+1. Fronts travel at c. Group velocity can exceed c or go negative,
+     vg = dw/dk = c / ng,   ng = n(w) + w * dn/dw
+   (Wang et al. 2000 measured ng = -310 in caesium vapour), but that moves
+   the PEAK of a smooth pulse, not new information. A switch closing or a
+   lamp turning on is a front, and fronts arrive at L / c, never earlier.
+2. Kramers-Kronig relations tie n(w) to absorption/gain at all
+   frequencies: steep dispersion is never free and never acausal.
+3. A standing wave is two travelling waves:
+     sin(kx) * cos(wt) = (1/2) * [ sin(kx - wt) + sin(kx + wt) ]
+   A change at one mirror reaches the other no sooner than L / c, and a
+   cavity must fill (energy ring-down ~ L / (c * (1 - R))), so it is
+   slower, not faster.
+4. Standard quantum mechanics is linear and no-signalling: one side's
+   measurement choice never changes the other side's local statistics.
+5. The tree and the box events are TIMELIKE separated
+   (c x 0.10 s = 29,979 km >> 4.572 m). No change of reference frame can
+   put the box event after the green. One-way FTL gives 0 s of warning;
+   the most any one-way trick can save over 15 ft is L / c = 15.25 ns.
 
-Method B: Teh
-(Separation of Variables)
+Conclusion: the old Method A (fast light in IR-pumped smoke, ng = 0.1)
+and old Method B (mirror cavity) are standard causal physics, so they
+predict a null result. Removed. Below: every framework we found that does
+NOT predict null, each given a status:
+  CONTROL  - works, but reads the present, not the future
+  OPEN     - consistent in logic; no evidence for it yet
+  BOUNDED  - experiments already push it far below a usable size
+  CAPPED   - even if real, too small to supply 0.10 s
 
-This method abandons propagation calculus entirely. It treats the 15-foot gap as a single, bound physical system governed by a partial differential wave equation with strict Dirichlet boundary conditions.
+THE ONLY THREE SHAPES A NON-NULL BOX CAN TAKE
+  (i)   a causal loop: FTL out to a relay moving relative to you and FTL
+        back (the "tachyonic antitelephone"), or a closed timelike curve.
+        Antitelephone geometry: box and tree at rest together; a relay a
+        distance D away moves at speed v along the line between them. The
+        box sends a signal that is instantaneous in ITS frame; the relay
+        replies instantly in the RELAY's frame. The reply arrives early by
+          dt = v * D / c^2   ->   D = c * dt / (v / c)
+        (the Lorentz factor gamma cancels in this setup).
+        For 0.10 s:  v ~ c: D = 29,979 km.
+                     v = 0.1c: D = 299,792 km (most of the way to the Moon).
+        These are minimums: with any finite signal speed u > c on each leg
+        the advance is smaller and D must be larger.
+  (ii)  direct retrocausation: a future condition changes a present
+        measurable.
+  (iii) the green is already fixed by present data the box can read.
+Check the shape before the physics.
 
-The system starts with the classic electromagnetic wave equation:
+CANDIDATE 0 - THE GREEN IS ALREADY DECIDED (shape iii, no new physics)
+How "unpredictable" the green really is depends on what decides it:
+  a. Human starter's button: humans have rhythms and habits, so timing is
+     partly predictable statistically, never exactly. Ordinary forward
+     causality - the decision forms in the starter before the press.
+  b. Automatic random start: only as random as its generator. A
+     pseudo-random generator is deterministic once its seed/state is
+     fixed; a hardware or quantum noise source is unpredictable in
+     practice.
+  c. Pre-arranged or rigged timing (an agreed signal, a repeatable
+     non-random pattern): not physics, it is cheating. Out of scope.
+"Is anything truly random?" (deterministic chaos, superdeterminism) does
+not change the box's problem. Even in a fully deterministic universe the
+box still needs the deciding information to physically reach it before
+green; determinism without a readout predicts nothing.
+In cases a and b, the deciding information exists before the lamp lights -
+in the controller, the starter, or electrical/RF leakage from the tree. A
+box reading it is reading the present early, not the future.
+  Test: log every accessible signal (photodiode on the green, logic
+  analyser, RF pickup) for 100+ passes; cross-correlate with real green.
+  Confirm: some present signal predicts green to < 0.001 s, >= t_car
+  ahead. Falsify (for that tree): none does.
+  Status: CONTROL. The only candidate known to work anywhere. Using it to
+  launch is prohibited in sanctioned racing; in this section it is the
+  control that every physics candidate must be isolated from.
 
-(d^2 * E / dx^2) - (1 / c^2) * (d^2 * E / dt^2) = 0
+CANDIDATE 1 - NON-EQUILIBRIUM PILOT WAVE (Valentini)
+Breaks: the Born rule as a law. In de Broglie-Bohm theory it is an
+equilibrium state:
+  equilibrium:      rho = |psi|^2       (no signalling)
+  non-equilibrium:  rho != |psi|^2      (signalling allowed)
+Catch 1: the signal is instantaneous in the theory's preferred frame -
+arrival AT the moment of sending, not 0.10 s before. Still needs shape (i).
+Catch 2: no non-equilibrium matter has ever been found; relaxation runs
+toward rho = |psi|^2, so it can't be made in a lab. Proposed sources are
+relic particles from the early universe (CMB searches).
+Status: OPEN - not refuted in logic, no evidence, no lab source, and even
+if found it still needs a loop to give advance warning.
 
-Using the Separation of Variables technique, we assume the solution can be factored into a purely spatial function X(x) and a purely temporal function T(t):
+CANDIDATE 2 - NONLINEAR QUANTUM MECHANICS (two different theories)
+Breaks: linearity.
+ 2a. Weinberg-type (1989): Gisin (1990) and Polchinski (1991) showed this
+     kind of nonlinearity lets one end of an entangled pair read the other
+     end's measurement choice - instantaneous signalling, loopable via
+     shape (i).
+     Bound: Bollinger et al. (1989), 9Be+ nuclear spin: nonlinear part
+     < 4 x 10^-27 of binding energy per nucleon.
+     Status: BOUNDED.
+ 2b. Kaplan-Rajendran causal framework (2022): nonlinearity built so it
+     never signals faster than light. Even if real it gives 0 s of advance
+     warning - it is listed only because it is the version being tested now.
+     Bound: Melnychuk et al. (2025), cryogenic RF: electromagnetic
+     nonlinearity |epsilon| <~ 1.15 x 10^-12.
+     Status: BOUNDED, and causal by design.
+2a is the cleanest route to a real signal and is ruled out far below any
+strength that could move a transbrake solenoid.
 
-E(x, t) = X(x) * T(t)
+CANDIDATE 3 - ADVANCED WAVES (Wheeler-Feynman; Cramer)
+Breaks: "retarded waves only." Fields are half retarded + half advanced:
+  F = (1/2) * (F_retarded + F_advanced)
+With a perfect future absorber the advanced parts cancel exactly. If
+absorption is incomplete, an emitter might depend on its future absorber -
+true retrocausation. BUT an ordinary advanced wave on the direct path
+from the tree reaches the box at most L / c = 15.25 ns before green.
+Ceiling on the direct path: 15 ns, not 0.10 s. (An advanced wave tied to a
+distant absorber could in principle lead by L_path / c; 0.10 s needs a
+path of ~30,000 km, and no absorber effect has been shown at any range.)
+Evidence: Partridge (1973), microwave source power constant to ~1 part in
+10^8 (null). Pegg's reanalysis (1973): a static absorber must give null
+anyway, so Partridge's setup could not settle it - a time-varying absorber
+is needed (Heron & Pegg 1974). Bajlo (2017, not peer reviewed) claims
+advanced pulses ~14.3 ns early over 4.3 m - exactly D / c for that 4.3 m,
+so even if real it fits the direct-path ceiling. Cramer's UW entangled-
+photon experiment (begun 2007) reported no signal; Cramer & Herbert's 2014
+analysis explains why: quantum interference cancels the would-be signal.
+Cheapest real test: Heron-Pegg style - microwave/laser source
+behind an isolator; downstream shutter/absorber whose state is chosen by a
+quantum random number generator AFTER each emission window; lock-in
+measurement of source drive power vs future absorber state, analysis fixed
+in advance. Confirm: power tracks future state > 5 sigma. Falsify: null at
+the rig's sensitivity. Cost: a hobby rig (~$200-500) reaches roughly
+1 part in 10^4-10^5; matching Partridge's 10^8 needs lab-grade sources and
+detectors ($2,000+). Main false positive: ordinary back-reflection (SWR) - the
+isolator and a matched dummy-load control are the experiment.
+Status: CAPPED (direct path) and no evidence; the expected result is null.
 
-Applying the boundary conditions where the electric field must equal zero at both mirrors (E(0, t) = 0 and E(L, t) = 0), the math resolves into a locked standing wave equation:
+CANDIDATE 4 - CLOSED TIMELIKE CURVES / WORMHOLES
+General relativity allows them on paper (Goedel, Tipler, Gott, wormholes
+with one mouth moved relativistically). Quantum models: Deutsch (1991),
+Lloyd et al. (2011, post-selected), Ji-Wilde-Lloyd (2026, capacity of a
+noisy post-selected CTC channel - mathematics, not a device).
+If one existed at the strip, 0.10 s would be trivial. The cost:
+  needed at a 1 m throat:  rho ~ -c^4 / (8 * pi * G * r^2) ~ -5 x 10^42 J/m^3
+  best real negative energy (Casimir, plates 1 um apart):
+                           rho = -pi^2 * hbar * c / (720 * a^4) ~ -4 x 10^-4 J/m^3
+  at plates 10 nm apart: ~ -4 x 10^4 J/m^3 (gap still ~38 orders)
+  gap: ~46 orders of magnitude at 1 um, before Ford-Roman quantum
+  inequalities and Hawking's chronology protection (1992) are even invoked. Gott's version
+  cannot be built from normal matter in an open universe (Carroll, Farhi,
+  Guth & Olum 1994).
+All lab "CTC experiments" are simulations; post-selected ones learn which
+runs "worked" only afterwards, through ordinary channels.
+Status: OPEN on paper in general relativity; as engineering, 38-46
+orders of magnitude short on negative energy.
 
-E(x, t) = 2 * E_0 * sin(k * x) * cos(w * t)
+CHECKED AND REJECTED
+- Lorentz violation / tachyon particles: one-way FTL gives 0 s of warning
+  to a stationary box; photon-speed limits put any energy-dependent shift
+  beyond 10 x the Planck energy (LHAASO, GRB 221009A, 2024).
+- Tachyonic FIELDS (m^2 < 0): standard QFT; means instability, not speed;
+  signals still never exceed c.
+- Objective collapse (GRW / CSL / Diosi-Penrose): random by design, no
+  control, no message. Parameter-free Diosi-Penrose ruled out underground
+  at Gran Sasso (Donadi et al. 2021).
+- Two-state vector / weak values / delayed-choice eraser: real
+  future-dependence in post-selected data; no control, no message.
+- Superdeterminism: predicts correlations, offers no channel or test.
+- Hidden finite-speed influences behind entanglement: Bancal et al. (2012)
+  showed any finite-speed model would allow FTL signalling; Salart et al.
+  (2008) bound such an influence at > 10,000 c (if Earth moves < c/1000 in
+  the preferred frame).
+- Fast light, superluminal tunneling (Nimtz), Scharnhorst effect
+  (dc/c ~ 1e-36): peak reshaping or unmeasurably small; all <= 15 ns.
+- Presentiment / precognition: pre-registered replications at chance
+  (Ritchie, Wiseman & French 2012); no controllable channel.
 
-Where the allowed wave numbers (k) are quantized eigenvalues
+WHAT A WORKING BOX WOULD HAVE TO DO (requirements for any candidate)
+R1 Shape: a loop (i) or direct retrocausation (ii) reaching at least
+   t_car + t_box into the future: 0.10-0.34 s by class, or the measured
+   t_car of the real car. Present-data tricks (iii) don't count.
+R2 Precision: the green time it delivers must be right to sigma <~ 0.0002 s
+   for a displayed .000 99% of the time; ~0.002 s still gives a useful
+   "small positive RT, no reds" box.
+R3 Information: pinning a green that can fall anywhere in a 1-2.5 s window
+   to 0.001-0.0002 s takes about 10-14 bits per launch, delivered early.
+R4 Reliability (yes/no "green now?" calls, detection strength d'):
+     d' ~ 4.65 -> 99% right per launch; about 1 ten-launch day in 10 has
+                  a miss.
+     d' ~ 6.18 -> 99.9% right; about 1 day in 100 has a miss.
+   For scale: a box that only just passes the random-bit test below at
+   55% has d' ~ 0.25 - about 18x too weak to race with. (Rule of thumb:
+   an effect of size e takes ~1/e^2 trials to see, so anything that needs
+   a big trial count to detect is far too weak to launch a car.)
+R5 Isolation: must work against a tree run by a hardware/quantum random
+   generator with every present-data path blocked (Candidate 0 control).
+R6 Practical: car-mounted, battery-powered, no lab-scale equipment.
+No candidate above meets R1 with known physics; a new result that does is
+exactly what step 6 of WHAT TO DO NEXT watches for.
 
-tehbofthstrictly dictated by the distance L:
+THE RANDOM-BIT TEST (how to check any claimed box, ~$120-150)
+Protocol: the box must COMMIT a guess (GREEN / NOT GREEN) and latch it in
+hardware at t = -0.10 s (or -t_car for the class being tested). Only
+then does an independent random generator (avalanche-noise or quantum
+source, checked for bias) pick the bit at t = 0. Separate battery
+supplies, shielded enclosures, no shared wiring,
+nothing discarded, analysis written down before the first trial.
+Control run: event station powered off (catches leakage).
+Statistics (chance = 50%):
+  N = 2,500 trials:   55.0% correct = 5 sigma
+  N = 10,000 trials:  52.5% correct = 5 sigma
+  N = 62,500 trials:  51.0% correct = 5 sigma
+Physics predicts 50%. Any repeatable 5-sigma excess, replicated on a second
+build, would be the discovery. This also exposes post-selection tricks:
+the box can't change its guess after the bit exists.
 
+DEMONSTRATIONS OF WHY THE OLD METHODS FAIL (optional, cheap)
+- Negative-group-delay op-amp circuit (Nakanishi, Sugiyama & Kitano 2002,
+  seconds-scale design): smooth pulse peak exits early; an abrupt step
+  never does. (~$50 + any scope)
+- 15 ft of RG-58 (velocity factor 0.66) + NanoVNA: one-way delay 23.11 ns,
+  open-stub resonance 10.82 MHz, mode spacing 21.64 MHz - the standing
+  wave obeys L/v, it doesn't erase it. (~$115)
+
+THE PRACTICAL FLOOR
+Without future information the box can only react:
+  RT = t_bulb + t_box + t_car
+  t_bulb: ~0.03 s incandescent, near 0 LED.
+  t_box (photodiode + fast comparator + hardware input capture to the
+         output edge): well under 0.001 s.
+  t_car: the dominant term (class table above); includes the solenoid or
+         clutch actuator's own response - measure it.
+So the best causal result is RT ~ +0.10 s (Top Fuel, est.) to ~ +0.34 s
+(Super Stock), plus ~0.03 s on an incandescent tree - better than a
+typical driver-launched car on instant green (racers report ~0.5 s), but
+never .000.
+On a standard .400 pro tree, the ambers ARE the advance warning - 0.400 s
+of it, delivered by light, for free - which is why .000 is possible there
+and not here.
+Rules: sanctioning bodies (NHRA, IHRA) prohibit any device that senses
+the tree to trigger the launch, in every class; delay boxes, where allowed,
+must be started by the driver. Test-and-tune / private use only - check
+the current rulebook for the class.
+
+FINAL RESULT
+Not proven impossible - but no established physics, and no proposed
+physics that has survived testing, supplies the 0.10-0.34 s of advance
+information (depending on class) needed at a drag strip. One-way FTL
+gives 0 s; ordinary advanced waves are capped at 15 ns on the direct
+path; loops need a relay ~30,000 km away at near light speed or a time
+machine 38-46 orders of magnitude beyond available negative energy. The
+one workable "candidate" reads the present, not the future. What a real
+box would need is spelled out in the requirements (R1-R6); the random-bit
+test is the cheap way to check anyone's claim against them.
+
+WHAT TO DO NEXT (in order)
+1. Measure the car. Log (box output edge) -> (stage beam clears) over
+   20+ launches with a practice beam and a hardware-timestamping logger.
+   Record mean t_car, sigma_car and worst case. This one number set
+   replaces the class estimates and sets the aim-late margin.
+2. Build and characterise the reacting box (photodiode + fast comparator +
+   microcontroller input capture -> launch output). Measure t_box on the
+   bench, and t_bulb on both an LED and an incandescent tree.
+3. Run the random-bit test against the box (or any device someone claims
+   works). Publish the raw log, including the powered-off control run.
+   Expected result: 50%. That null is a real, citable result.
+4. Optional demonstrations for the doc: the negative-group-delay circuit
+   and the 15 ft coax/NanoVNA test (both under ~$120).
+5. Optional science side-quest: a hobby Heron-Pegg absorber test. It
+   cannot help the box (15 ns ceiling), but it is the one open retro-
+   causal question a home lab can actually poke at.
+6. Reopen this section only if one of these happens, independently
+   replicated and peer reviewed:
+     - a measured deviation from the Born rule (Candidate 1),
+     - a nonzero nonlinearity in quantum mechanics (Candidate 2),
+     - a confirmed advanced-wave effect (Candidate 3),
+     - any device passing the random-bit test above chance.
+   If one does, re-score that candidate and rerun the random-bit test.
+7. Meanwhile, the gains that actually exist are ordinary ones: lower and
+   more repeatable t_car (staging depth, front tire diameter, launch
+   setup), a fast low-jitter box, and an LED tree - within the rules of
+   the class being raced.
+
+REFERENCES (key sources)
+  Portatree, "What's My Rollout?" (class rollouts, LED note) - portatree.com
+  Wang, Kuzmich & Dogariu, Nature 406, 277 (2000) - ng = -310
+  Nakanishi, Sugiyama & Kitano, Am. J. Phys. 70, 1117 (2002) - NGD circuit
+  Benford, Book & Newcomb, Phys. Rev. D 2, 263 (1970) - antitelephone
+  Valentini, arXiv:quant-ph/0106098 (2001) - signal-locality
+  Gisin, Phys. Lett. A 143, 1 (1990); Polchinski, PRL 66, 397 (1991)
+  Kaplan & Rajendran, Phys. Rev. D 105, 055002 (2022) - causal nonlinear QM
+  Bollinger et al., PRL 63, 1031 (1989) - 4 x 10^-27
+  Melnychuk et al., Phys. Rev. D 112, 012020 (2025) - 1.15 x 10^-12
+  Partridge, Nature 244, 263 (1973); Pegg, Nature Phys. Sci. 246, 40 (1973)
+  Heron & Pegg, J. Phys. A 7, 1965 (1974) - time-varying absorber test
+  Bajlo, Zenodo 247283 (2017, not peer reviewed)
+  Cramer & Herbert, arXiv:1409.5098 (2014) - analysis of the UW test
+  Lloyd et al., PRL 106, 040403 (2011); Ji, Wilde & Lloyd, PRL (2026)
+  Morris, Thorne & Yurtsever, PRL 61, 1446 (1988); Hawking, PRD 46, 603 (1992)
+  Carroll, Farhi, Guth & Olum, Phys. Rev. D 50, 6190 (1994)
+  LHAASO, PRL 133, 071501 (2024)
+  Donadi et al., Nature Phys. 17, 74 (2021)
+  Bancal et al., Nature Phys. 8, 867 (2012); Salart et al., Nature 454, 861 (2008)
+  Ritchie, Wiseman & French, PLoS ONE 7, e33423 (2012)
 
 
 
