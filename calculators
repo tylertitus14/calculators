@@ -326,8 +326,9 @@ Breaks: linearity.
      Bound: Melnychuk et al. (2025), cryogenic RF: electromagnetic
      nonlinearity |epsilon| <~ 1.15 x 10^-12.
      Status: BOUNDED, and causal by design.
-2a is the cleanest route to a real signal and is ruled out far below any
-strength that could move a transbrake solenoid.
+2a is the cleanest route to a real signal, but experiments show any
+such signal would be virtually indistinguishable from a coin flip,
+even over a huge number of trials.
 
 CANDIDATE 3 - ADVANCED WAVES (Wheeler-Feynman; Cramer)
 Breaks: "retarded waves only." Fields are half retarded + half advanced:
