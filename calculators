@@ -304,12 +304,13 @@ equilibrium state:
   equilibrium:      rho = |psi|^2       (no signalling)
   non-equilibrium:  rho != |psi|^2      (signalling allowed)
 Catch 1: the signal is instantaneous in the theory's preferred frame -
-arrival AT the moment of sending, not 0.10 s before. Still needs shape (i).
+arrival AT the moment of sending, not 0.10 s before. With only one
+preferred frame, a loop (shape i) can't send it back earlier either: 0 s.
 Catch 2: no non-equilibrium matter has ever been found; relaxation runs
 toward rho = |psi|^2, so it can't be made in a lab. Proposed sources are
 relic particles from the early universe (CMB searches).
 Status: OPEN - not refuted in logic, no evidence, no lab source, and even
-if found it still needs a loop to give advance warning.
+if found it gives 0 s of advance warning (see Catch 1).
 
 CANDIDATE 2 - NONLINEAR QUANTUM MECHANICS (two different theories)
 Breaks: linearity.
@@ -390,6 +391,11 @@ CHECKED AND REJECTED
 - Two-state vector / weak values / delayed-choice eraser: real
   future-dependence in post-selected data; no control, no message.
 - Superdeterminism: predicts correlations, offers no channel or test.
+- A real instant (Coulomb-gauge) potential with a receiver coupling
+  (the wave-law note's model): faster than light only in one preferred
+  frame, so never early; saves at most 15 ns, and at the strip it would
+  only sense the tree's own circuit switching - Candidate 0 by another
+  route.
 - Hidden finite-speed influences behind entanglement: Bancal et al. (2012)
   showed any finite-speed model would allow FTL signalling; Salart et al.
   (2008) bound such an influence at > 10,000 c (if Earth moves < c/1000 in
@@ -413,8 +419,8 @@ R4 Reliability (yes/no "green now?" calls, detection strength d'):
      d' ~ 6.18 -> 99.9% right: about 1 miss per 1,000 launches.
    For scale: a box that only just passes the random-bit test below at
    55% has d' ~ 0.25 - about 18x too weak to race with. (Rule of thumb:
-   an effect of size e takes ~1/e^2 trials to see, so anything that needs
-   a big trial count to detect is far too weak to launch a car.)
+   an effect of size e takes ~1/e^2 trials to tell apart from a coin
+   flip, and each launch gets exactly one trial.)
 R5 Isolation: must work against a tree run by a hardware/quantum random
    generator with every present-data path blocked (Candidate 0 control).
 R6 Practical: car-mounted, battery-powered, no lab-scale equipment.
