@@ -409,9 +409,8 @@ R2 Precision: the green time it delivers must be right to sigma <~ 0.0002 s
 R3 Information: pinning a green that can fall anywhere in a 1-2.5 s window
    to 0.001-0.0002 s takes about 10-14 bits per launch, delivered early.
 R4 Reliability (yes/no "green now?" calls, detection strength d'):
-     d' ~ 4.65 -> 99% right per launch; about 1 ten-launch day in 10 has
-                  a miss.
-     d' ~ 6.18 -> 99.9% right; about 1 day in 100 has a miss.
+     d' ~ 4.65 -> 99% right: about 1 miss per 100 launches.
+     d' ~ 6.18 -> 99.9% right: about 1 miss per 1,000 launches.
    For scale: a box that only just passes the random-bit test below at
    55% has d' ~ 0.25 - about 18x too weak to race with. (Rule of thumb:
    an effect of size e takes ~1/e^2 trials to see, so anything that needs
