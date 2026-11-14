@@ -244,6 +244,10 @@ WHY STANDARD PHYSICS PREDICTS ZERO
    (c x 0.10 s = 29,979 km >> 4.572 m). No change of reference frame can
    put the box event after the green. One-way FTL gives 0 s of warning;
    the most any one-way trick can save over 15 ft is L / c = 15.25 ns.
+   That holds under any single preferred "now" as well, provided every link
+   runs forward in its time; only FTL that is instant in two different
+   frames can loop back (shape i; frame options in the wave-law note,
+   section 10).
 
 Conclusion: the old Method A (fast light in IR-pumped smoke, ng = 0.1)
 and old Method B (mirror cavity) are standard causal physics, so they
@@ -268,13 +272,15 @@ THE ONLY THREE SHAPES A NON-NULL BOX CAN TAKE
         These are minimums: with any finite signal speed u > c on each leg
         the advance is smaller and D must be larger.
         
-        (((Planetary relay (rough, circular orbits): at orbital speeds
+        (((Frame option P' in the wave-law note, section 10. Planetary relay
+        (rough, circular orbits): at orbital speeds
         (~1e-4 c) D must be AU-scale. Best-case advance with the relay on
           Venus ~0.02 s   Mars ~0.035 s   Jupiter ~0.24 s
           Saturn ~0.46 s  Neptune ~1.5 s
         so Jupiter or farther covers the class table, but only when the
         planets' positions and motion line up (other times it comes back
-        late). It needs FTL links that are instant in EACH world's own
+        late, and zero when the two planets line up with the Sun). It needs
+        FTL links that are instant in EACH world's own
         frame - the two-frame case the wave-law note flags as its open
         limit (its section 8) - and a working relay out therhebe.)))
 
@@ -410,7 +416,10 @@ CHECKED AND REJECTED
 - Hidden finite-speed influences behind entanglement: Bancal et al. (2012)
   showed any finite-speed model would allow FTL signalling; Salart et al.
   (2008) bound such an influence at > 10,000 c (if Earth moves < c/1000 in
-  the preferred frame).
+  the preferred frame), and Cocciaro, Faetti & Fronzoni (2018) at about
+  5 million c for a CMB-like frame (loopholes still open). Only models that
+  are exactly instant in one frame escape these bounds (Candidate 1, the
+  wave-law note), and those give 0 s.
 - Fast light, superluminal tunneling (Nimtz), Scharnhorst effect
   (dc/c ~ 1e-36): peak reshaping or unmeasurably small; all <= 15 ns.
 - Presentiment / precognition: pre-registered replications at chance
@@ -542,6 +551,7 @@ REFERENCES (key sources)
   LHAASO, PRL 133, 071501 (2024)
   Donadi et al., Nature Phys. 17, 74 (2021)
   Bancal et al., Nature Phys. 8, 867 (2012); Salart et al., Nature 454, 861 (2008)
+  Cocciaro, Faetti & Fronzoni, Phys. Rev. A 97, 052124 (2018)
   Ritchie, Wiseman & French, PLoS ONE 7, e33423 (2012)
 
 
