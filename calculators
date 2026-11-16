@@ -240,7 +240,8 @@ WHY STANDARD PHYSICS PREDICTS ZERO
    slower, not faster.
 4. Standard quantum mechanics is linear and no-signalling: one side's
    measurement choice never changes the other side's local statistics.
-5. The tree and the box events are TIMELIKE separated
+5. The box's required output (0.10 s before the green) and the tree's green
+   are TIMELIKE separated
    (c x 0.10 s = 29,979 km >> 4.572 m). No change of reference frame can
    put the box event after the green. One-way FTL gives 0 s of warning;
    the most any one-way trick can save over 15 ft is L / c = 15.25 ns.
@@ -274,7 +275,8 @@ THE ONLY THREE SHAPES A NON-NULL BOX CAN TAKE
         
         (((Frame option P' in the wave-law note, section 10. Planetary relay
         (rough, circular orbits): at orbital speeds
-        (~1e-4 c) D must be AU-scale. Best-case advance with the relay on
+        (~1e-4 c) D must be AU-scale. Best-case advance, a_E * a_p * |n_p - n_E| / c^2
+        (orbit radii a, orbital rates n), with the relay on
           Venus ~0.02 s   Mars ~0.035 s   Jupiter ~0.24 s
           Saturn ~0.46 s  Neptune ~1.5 s
         so Jupiter or farther covers the class table, but only when the
@@ -398,8 +400,9 @@ orders of magnitude short on negative energy.
 
 CHECKED AND REJECTED
 - Lorentz violation / tachyon particles: one-way FTL gives 0 s of warning
-  to a stationary box; photon-speed limits put any energy-dependent shift
-  beyond 10 x the Planck energy (LHAASO, GRB 221009A, 2024).
+  to a stationary box; photon-speed limits put the scale of a linear
+  energy-dependent shift beyond 10 x the Planck energy, and of a quadratic
+  one beyond about 6e-8 of it (LHAASO, GRB 221009A, 2024).
 - Tachyonic FIELDS (m^2 < 0): standard QFT; means instability, not speed;
   signals still never exceed c.
 - Objective collapse (GRW / CSL / Diosi-Penrose): random by design, no
@@ -545,7 +548,7 @@ REFERENCES (key sources)
   Heron & Pegg, J. Phys. A 7, 1965 (1974) - time-varying absorber test
   Bajlo, Zenodo 247283 (2017, not peer reviewed)
   Cramer & Herbert, arXiv:1409.5098 (2014) - analysis of the UW test
-  Lloyd et al., PRL 106, 040403 (2011); Ji, Wilde & Lloyd, PRL (2026)
+  Lloyd et al., PRL 106, 040403 (2011); Ji, Lloyd & Wilde, PRL 136, 230801 (2026)
   Morris, Thorne & Yurtsever, PRL 61, 1446 (1988); Hawking, PRD 46, 603 (1992)
   Carroll, Farhi, Guth & Olum, Phys. Rev. D 50, 6190 (1994)
   LHAASO, PRL 133, 071501 (2024)
