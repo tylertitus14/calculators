@@ -353,31 +353,66 @@ even over a huge number of trials.
 CANDIDATE 3 - ADVANCED WAVES (Wheeler-Feynman; Cramer)
 Breaks: "retarded waves only." Fields are half retarded + half advanced:
   F = (1/2) * (F_retarded + F_advanced)
-With a perfect future absorber the advanced parts cancel exactly. If
-absorption is incomplete, an emitter might depend on its future absorber -
-true retrocausation. BUT an ordinary advanced wave on the direct path
-from the tree reaches the box at most L / c = 15.25 ns before green.
+With a perfect future absorber the advanced parts cancel exactly, and the
+theory then predicts exactly what ordinary electrodynamics predicts. If
+absorption is incomplete, a small advanced part could survive - a source
+or receiver responding to its future absorber, true retrocausation. Whether
+it is incomplete is a question about the future universe, so only
+measurement can settle it.
+BUT an ordinary advanced wave on the direct path from the tree reaches the
+box at most L / c = 15.25 ns before green.
 Ceiling on the direct path: 15 ns, not 0.10 s. (An advanced wave tied to a
 distant absorber could in principle lead by L_path / c; 0.10 s needs a
 path of ~30,000 km, and no absorber effect has been shown at any range.)
-Evidence: Partridge (1973), microwave source power constant to ~1 part in
-10^8 (null). Pegg's reanalysis (1973): a static absorber must give null
-anyway, so Partridge's setup could not settle it - a time-varying absorber
-is needed (Heron & Pegg 1974). Bajlo (2017, not peer reviewed) claims
-advanced pulses ~14.3 ns early over 4.3 m - exactly D / c for that 4.3 m,
-so even if real it fits the direct-path ceiling. Cramer's UW entangled-
-photon experiment (begun 2007) reported no signal; Cramer & Herbert's 2014
-analysis explains why: quantum interference cancels the would-be signal.
-Cheapest real test: Heron-Pegg style - microwave/laser source
-behind an isolator; downstream shutter/absorber whose state is chosen by a
-quantum random number generator AFTER each emission window; lock-in
-measurement of source drive power vs future absorber state, analysis fixed
-in advance. Confirm: power tracks future state > 5 sigma. Falsify: null at
-the rig's sensitivity. Cost: a hobby rig (~$200-500) reaches roughly
-1 part in 10^4-10^5; matching Partridge's 10^8 needs lab-grade sources and
-detectors ($2,000+). Main false positive: ordinary back-reflection (SWR) - the
-isolator and a matched dummy-load control are the experiment.
-Status: CAPPED (direct path) and no evidence; the expected result is null.
+Evidence, and what each test could and could not show:
+  - Partridge (1973): a horn antenna radiating alternately into the sky
+    and into a local absorber; drive power equal to about 1 part in 10^8
+    (null). Pegg (1973): a static absorber must give null anyway. Davies
+    (1975): the null was also guaranteed by absorption on the far side of
+    the Earth. So this test could not settle the question.
+  - Schmidt & Newman (1980): looked for early signals in a downstream
+    dipole antenna; none.
+  - Heron & Pegg (1974): proposed a time-varying ("chopper") absorber.
+    Davies (1975) argued the proposal was invalid in the usual reading of
+    the theory; it was abandoned for lack of a fast enough switch (Raju,
+    1992, argues it could now be revived). Never run.
+  - Niknejadi, Madey & Kowalczyk (2015): the Schmidt-Newman receiver was
+    the wrong size. A dipole about one wavelength long should see nothing;
+    a short one (1/10 to 1/20 wavelength) should see an early signal.
+  - Bajlo (2017, not peer reviewed): 6-24 ns pulses at 91-200 cm
+    wavelength, a lambda/20 monopole receiver 4.3-18 m away, signals at
+    15-31 sigma in a window 2r/c before the centre of the ordinary pulse.
+    Cramer (Analog, 2022) calls it credible but short of the field's
+    standards: one US group with good equipment could not reproduce it,
+    and Madey reports corroboration that is unpublished. Even if real, the
+    lead is set by the path (tens of ns over metres), so it fits the
+    direct-path ceiling and cannot help the box.
+  - Cramer's UW entangled-photon experiment (begun 2007) reported no
+    signal; Cramer & Herbert's 2014 analysis explains why: quantum
+    interference cancels the would-be signal.
+Cheapest real test: replicate Bajlo with the Niknejadi-Madey-Kowalczyk
+control - not a chopper, which needs a switch far faster than a hobby rig
+has. Nanosecond pulsed RF source (wavelength ~1-2 m) into a transmitting
+antenna; short (lambda/20) monopole receiver 4-18 m away; sampling scope
+or fast digitizer; look in the window 2r/c before the ordinary pulse.
+The controls are the experiment:
+  1. swap in a full-size receiving dipole, where the theory predicts
+     nothing - a real effect must vanish, an artifact usually will not;
+  2. move the receiver - a real lead must track 2r/c, while cable
+     ringing, reflections and trigger crosstalk do not;
+  3. isolate the trigger path from the transmitter (fibre trigger,
+     battery power), and swap terminations and shielding;
+  4. fix the analysis window, thresholds and run list in advance, and
+     log every run, including nulls.
+Confirm: an early signal > 5 sigma whose lead tracks 2r/c, present with
+the short receiver and absent with the full-size one, reproduced on a
+second rig. Falsify: null at the rig's sensitivity with both receivers.
+Cost (rough): a used >=1 GHz sampling scope or digitizer and a
+nanosecond pulse source, about $500-2,000. Main false positives: ringing
+and reflections in cables and antennas, and pickup through the shared
+trigger or power - controls 2 and 3 exist for these.
+Status: CAPPED (direct path). Evidence disputed: one unrefereed positive
+claim, one failed replication. The expected result is null.
 
 CANDIDATE 4 - CLOSED TIMELIKE CURVES / WORMHOLES
 General relativity allows them on paper (Goedel, Tipler, Gott, wormholes
@@ -520,9 +555,10 @@ WHAT TO DO NEXT (in order)
    Expected result: 50%. That null is a real, citable result.
 4. Optional demonstrations for the doc: the negative-group-delay circuit
    and the 15 ft coax/NanoVNA test (both under ~$120).
-5. Optional science side-quest: a hobby Heron-Pegg absorber test. It
-   cannot help the box (15 ns ceiling), but it is the one open retro-
-   causal question a home lab can actually poke at.
+5. Optional science side-quest: a hobby replication of Bajlo's short-
+   antenna advanced-wave test, with the full-size-antenna control
+   (Candidate 3). It cannot help the box (direct-path ceiling), but it is
+   the one open retrocausal question a home lab can actually poke at.
 6. Reopen this section only if one of these happens, independently
    replicated and peer reviewed:
      - a measured deviation from the Born rule (Candidate 1),
@@ -547,7 +583,13 @@ REFERENCES (key sources)
   Melnychuk et al., Phys. Rev. D 112, 012020 (2025) - 1.15 x 10^-12
   Partridge, Nature 244, 263 (1973); Pegg, Nature Phys. Sci. 246, 40 (1973)
   Heron & Pegg, J. Phys. A 7, 1965 (1974) - time-varying absorber test
+  Davies, J. Phys. A 8, 272 (1975) - critique of both
+  Schmidt & Newman, Bull. Am. Phys. Soc. 25, 581 (1980)
+  Raju, Physics Education (India) 9, 251 (1992) - Heron-Pegg abandoned
+  Niknejadi, Madey & Kowalczyk, Phys. Rev. D 91, 096006 (2015) - short-
+    antenna prediction (erratum Phys. Rev. D 92, 079902)
   Bajlo, Zenodo 247283 (2017, not peer reviewed)
+  Cramer, "Advanced Waves Detected," Analog, Jul-Aug 2022 (AV-219)
   Cramer & Herbert, arXiv:1409.5098 (2014) - analysis of the UW test
   Lloyd et al., PRL 106, 040403 (2011); Ji, Lloyd & Wilde, PRL 136, 230801 (2026)
   Morris, Thorne & Yurtsever, PRL 61, 1446 (1988); Hawking, PRD 46, 603 (1992)
