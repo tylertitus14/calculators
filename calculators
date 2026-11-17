@@ -364,6 +364,10 @@ box at most L / c = 15.25 ns before green.
 Ceiling on the direct path: 15 ns, not 0.10 s. (An advanced wave tied to a
 distant absorber could in principle lead by L_path / c; 0.10 s needs a
 path of ~30,000 km, and no absorber effect has been shown at any range.)
+Two different claims are in play, and they need different experiments:
+that incomplete absorption lets an advanced part survive (the absorber
+tests below), and that a short enough antenna can receive an advanced
+signal an ordinary one cannot (the antenna tests).
 Evidence, and what each test could and could not show:
   - Partridge (1973): a horn antenna radiating alternately into the sky
     and into a local absorber; drive power equal to about 1 part in 10^8
@@ -380,10 +384,13 @@ Evidence, and what each test could and could not show:
     the wrong size. A dipole about one wavelength long should see nothing;
     a short one (1/10 to 1/20 wavelength) should see an early signal.
   - Bajlo (2017, not peer reviewed): 6-24 ns pulses at 91-200 cm
-    wavelength, a lambda/20 monopole receiver 4.3-18 m away, signals at
-    15-31 sigma in a window 2r/c before the centre of the ordinary pulse.
-    Cramer (Analog, 2022) calls it credible but short of the field's
-    standards: one US group with good equipment could not reproduce it,
+    wavelength, a lambda/20 monopole receiver 4.3-18 m away, early
+    signals in a window 2r/c before the arrival of the centre of the
+    ordinary pulse (his definition). His abstract gives a signal-to-noise
+    ratio (mu/sigma) of 15.4-30.9; Cramer (Analog, 2022) reports the
+    detections at 6.94 to 26.5 standard deviations - different measures
+    from different sources. Cramer calls it credible but short of the
+    field's standards: one US group with good equipment could not reproduce it,
     and Madey reports corroboration that is unpublished. Even if real, the
     lead is set by the path (tens of ns over metres), so it fits the
     direct-path ceiling and cannot help the box.
@@ -393,8 +400,13 @@ Evidence, and what each test could and could not show:
 Cheapest real test: replicate Bajlo with the Niknejadi-Madey-Kowalczyk
 control - not a chopper, which needs a switch far faster than a hobby rig
 has. Nanosecond pulsed RF source (wavelength ~1-2 m) into a transmitting
-antenna; short (lambda/20) monopole receiver 4-18 m away; sampling scope
-or fast digitizer; look in the window 2r/c before the ordinary pulse.
+antenna; short (lambda/20) monopole receiver 4-18 m away; scope or
+digitizer with > 1 GHz bandwidth, >= 5 GS/s sampling and sub-nanosecond
+trigger jitter; look in Bajlo's window, 2r/c before the centre of the
+ordinary pulse - that is, r/c before the pulse leaves the transmitter. Run outdoors in open space (or an absorber-lined room),
+well clear of buildings, at the lowest power that reaches the scope:
+nanosecond pulses are broadband, so check your country's rules for
+unlicensed transmission (in the US, FCC Part 15).
 The controls are the experiment:
   1. swap in a full-size receiving dipole, where the theory predicts
      nothing - a real effect must vanish, an artifact usually will not;
@@ -403,14 +415,30 @@ The controls are the experiment:
   3. isolate the trigger path from the transmitter (fibre trigger,
      battery power), and swap terminations and shielding;
   4. fix the analysis window, thresholds and run list in advance, and
-     log every run, including nulls.
-Confirm: an early signal > 5 sigma whose lead tracks 2r/c, present with
-the short receiver and absent with the full-size one, reproduced on a
-second rig. Falsify: null at the rig's sensitivity with both receivers.
-Cost (rough): a used >=1 GHz sampling scope or digitizer and a
-nanosecond pulse source, about $500-2,000. Main false positives: ringing
-and reflections in cables and antennas, and pickup through the shared
-trigger or power - controls 2 and 3 exist for these.
+     log every run, including nulls;
+  5. interleave short- and full-size-receiver runs (A/B/A/B) and keep
+     the receiver identity hidden from the analysis until the counts in
+     the window are frozen;
+  6. on the same schedule, run with the transmitter off, and with the
+     receiver replaced by a matched load in the same place, same cables
+     and trigger: anything "early" there is the artifact floor;
+  7. repeat one range with the whole rig turned and at another height - a
+     real lead is unchanged, a reflection usually is not.
+Confirm: an early signal > 5 sigma above the artifact floor of control
+6, whose lead tracks 2r/c, present with the short receiver and absent
+with the full-size one, reproduced on a second rig. Falsify: first show,
+with an injected test pulse, that the rig can see a signal at Bajlo's
+reported strength at the same range and pulse width; a null after that
+falsifies the Bajlo / Niknejadi-Madey-Kowalczyk claim at that
+sensitivity. Either way this tests the short-antenna claim only, not
+incomplete absorption, whose test is still the chopper.
+Cost (rough): a used scope or digitizer meeting the spec above and a
+nanosecond pulse source, about $1,000-3,000. Main false positives:
+ringing and reflections in cables and antennas, multipath off nearby
+structures, pickup through the shared trigger or power, and any pre-pulse
+or early trigger output of the pulse generator itself, which lands in
+exactly this early window - record the generator's output directly.
+Controls 2, 3, 6 and 7 exist for these.
 Status: CAPPED (direct path). Evidence disputed: one unrefereed positive
 claim, one failed replication. The expected result is null.
 
@@ -587,7 +615,7 @@ REFERENCES (key sources)
   Schmidt & Newman, Bull. Am. Phys. Soc. 25, 581 (1980)
   Raju, Physics Education (India) 9, 251 (1992) - Heron-Pegg abandoned
   Niknejadi, Madey & Kowalczyk, Phys. Rev. D 91, 096006 (2015) - short-
-    antenna prediction (erratum Phys. Rev. D 92, 079902)
+    antenna prediction
   Bajlo, Zenodo 247283 (2017, not peer reviewed)
   Cramer, "Advanced Waves Detected," Analog, Jul-Aug 2022 (AV-219)
   Cramer & Herbert, arXiv:1409.5098 (2014) - analysis of the UW test
